@@ -24,7 +24,7 @@ $color-switcher: #1abc9c;
 
 html { -webkit-text-size-adjust:none; }
 
-.switch-frame {
+.light-switch {
     position: relative;
     width: $width + $height;
     height: $height;
@@ -96,11 +96,11 @@ html { -webkit-text-size-adjust:none; }
             height: 100%;
             @include backface-visibility(hidden);
 
-            &.fa-moon-o {
+            &.front {
                 color: shade($color-switch, 10%);
             }
 
-            &.fa-sun-o {
+            &.back {
                 color: $color-switcher;
                 text-shadow: 0px 0px 5px tint($color-switcher, 50%);
                 @include transform(rotateY(180deg));
