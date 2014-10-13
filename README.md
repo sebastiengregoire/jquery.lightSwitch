@@ -27,7 +27,7 @@ Then, paste this light-switch code wherever you want (in your HTML code, ok?!) :
 
 ## Add an action to the button
 
-Yeah, I know... A button is usually used to do something. And yey, you can do this something! Go to the `jquery.light-switch.js` and add your action where it's indicated.
+Yeah, I know... A button is usually used to do something. And yey, you can do this something! Go to the `js/jquery.light-switch.js` and add your action where it's indicated.
 
 ## One more thing
 
