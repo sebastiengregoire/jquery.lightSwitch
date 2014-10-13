@@ -1,4 +1,6 @@
 .sass-cache/*
 .codekit-cache/*
+bourbon/*
+light-switch.scss
 config.codekit
 README.html
