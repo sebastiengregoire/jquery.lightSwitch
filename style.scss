@@ -1,0 +1,110 @@
+@import "bourbon/bourbon";
+
+// variables
+$width: 100px;
+$height: 40px;
+$switcher-gap: 2px;
+
+$animation-duration: 500ms;
+
+$color-switch: #ecf0f1;
+$color-switcher: #1abc9c;
+
+// mixins
+@mixin border-radius($radius) {
+    @include border-top-radius($radius);
+    @include border-bottom-radius($radius);
+    @include border-left-radius($radius);
+    @include border-right-radius($radius);
+}
+
+
+
+// style
+
+html { -webkit-text-size-adjust:none; }
+
+.switch-frame {
+    position: relative;
+    width: $width + $height;
+    height: $height;
+    @include margin(100px auto);
+
+    .switch {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $width;
+        height: $height + 1px;
+        // background: $color-switch;
+        @include linear-gradient(to top, tint($color-switch, 20%), $color-switch);
+        border-top: 1px solid shade($color-switch, 10%);
+        @include border-radius(5px);
+        // -moz-box-shadow: inset 0px 10px 3px 0px $color-gris-clair;
+        // -webkit-box-shadow: inset 0px 10px 3px 0px $color-gris-clair;
+        // -o-box-shadow: inset 0px 10px 3px 0px $color-gris-clair;
+        // box-shadow: inset 0px 10px 3px 0px $color-gris-clair;
+        // filter:progid:DXImageTransform.Microsoft.Shadow(color=$color-gris-clair, Direction=180, Strength=3);
+
+        .switcher {
+            @include position(absolute, ($switcher-gap - 1px) null null $switcher-gap);
+            @include size(($height - (2 * $switcher-gap)) ($height - (2 * $switcher-gap) - 2px));
+            // background: $color-switcher;
+            @include linear-gradient(tint($color-switcher, 40%), $color-switcher);
+            border-top: 1px solid tint($color-switcher, 70%);
+            border-bottom: 1px solid shade($color-switcher, 10%);
+            @include border-radius(5px);
+            -moz-box-shadow: 0px 1px 5px 0px shade($color-switch, 10%);
+            -webkit-box-shadow: 0px 1px 5px 0px shade($color-switch, 10%);
+            -o-box-shadow: 0px 1px 5px 0px shade($color-switch, 10%);
+            box-shadow: 0px 1px 5px 0px shade($color-switch, 10%);
+
+            @include transition(all $animation-duration);
+
+            &:hover {
+                background: tint($color-switcher, 30%);
+                cursor: pointer;
+            }
+
+            &.on {
+                left: $width - $height;
+            }
+        }
+    }
+
+    .light {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $height;
+        height: $height;
+        text-align: center;
+
+        @include transform-style(preserve-3d);
+        @include transition(transform $animation-duration);
+
+        &.on {
+            @include transform(rotateY(180deg));
+        }
+
+        i {
+            background: #FFF;
+            line-height: $height;
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            @include backface-visibility(hidden);
+
+            &.fa-moon-o {
+                color: shade($color-switch, 10%);
+            }
+
+            &.fa-sun-o {
+                color: $color-switcher;
+                text-shadow: 0px 0px 5px tint($color-switcher, 50%);
+                @include transform(rotateY(180deg));
+            }
+        }
+    }
+}
