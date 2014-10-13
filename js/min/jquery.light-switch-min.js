@@ -1,1 +1,1 @@
-$(document).ready(function(){$(".switch").click(function(t){$(".switcher").toggleClass("on"),$(".light").toggleClass("on")})});
+$(document).ready(function(){$(".light-switch").click(function(t){$(this).toggleClass("on")})});

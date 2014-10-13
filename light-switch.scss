@@ -18,85 +18,68 @@ $color-switcher: #1abc9c;
     @include border-right-radius($radius);
 }
 
-// style
-html { -webkit-text-size-adjust:none; } // ?
+@mixin box-shadow($params) {
+    @include prefixer(box-shadow, $params, webkit moz spec ms o);
+}
 
+// style
 .light-switch {
-    position: relative;
-    width: $width + $height;
-    height: $height;
+    @include position(relative);
+    @include size(($width + $height) $height);
     @include margin(100px auto);
 
+    &.on {
+        .switch .switcher { left: $width - $height; }
+        .light { @include transform(rotateY(180deg)); }
+    }
+
     .switch {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: $width;
-        height: $height + 1px;
-        // background: $color-switch;
+        @include position(absolute, 0px auto auto 0px);
+        @include size($width $height);
         @include linear-gradient(to top, tint($color-switch, 20%), $color-switch);
         border-top: 1px solid shade($color-switch, 10%);
         @include border-radius(5px);
-        // -moz-box-shadow: inset 0px 10px 3px 0px $color-gris-clair;
-        // -webkit-box-shadow: inset 0px 10px 3px 0px $color-gris-clair;
-        // -o-box-shadow: inset 0px 10px 3px 0px $color-gris-clair;
-        // box-shadow: inset 0px 10px 3px 0px $color-gris-clair;
-        // filter:progid:DXImageTransform.Microsoft.Shadow(color=$color-gris-clair, Direction=180, Strength=3);
 
         .switcher {
-            @include position(absolute, ($switcher-gap - 1px) null null $switcher-gap);
+            @include position(absolute, ($switcher-gap - 1px) auto auto $switcher-gap);
             @include size(($height - (2 * $switcher-gap)) ($height - (2 * $switcher-gap) - 2px));
-            // background: $color-switcher;
             @include linear-gradient(tint($color-switcher, 40%), $color-switcher);
             border-top: 1px solid tint($color-switcher, 70%);
             border-bottom: 1px solid shade($color-switcher, 10%);
             @include border-radius(5px);
-            -moz-box-shadow: 0px 1px 5px 0px shade($color-switch, 10%);
-            -webkit-box-shadow: 0px 1px 5px 0px shade($color-switch, 10%);
-            -o-box-shadow: 0px 1px 5px 0px shade($color-switch, 10%);
-            box-shadow: 0px 1px 5px 0px shade($color-switch, 10%);
-
+            @include box-shadow(0px 1px 5px 0px shade($color-switch, 10%));
             @include transition(all $animation-duration);
 
             &:hover {
                 background: tint($color-switcher, 30%);
                 cursor: pointer;
             }
-
-            &.on {
-                left: $width - $height;
-            }
         }
     }
 
     .light {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: $height;
-        height: $height;
+        @include position(absolute, 0px 0px auto auto);
+        @include size($height $height);
         text-align: center;
+        background: transparent;
 
+        @include transition(transform $animation-duration ease-in-out);
+        @include transform-origin(center top);
         @include transform-style(preserve-3d);
-        @include transition(transform $animation-duration);
-
-        &.on {
-            @include transform(rotateY(180deg));
-        }
 
         i {
-            background: #FFF;
+            @include position(absolute);
+            @include size(100% 100%);
+            @include backface-visibility(hidden);
             line-height: $height;
             display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            @include backface-visibility(hidden);
 
             &.front {
                 color: shade($color-switch, 10%);
+                background: #FFF;
             }
 
+            // => Activated
             &.back {
                 color: $color-switcher;
                 text-shadow: 0px 0px 5px tint($color-switcher, 50%);

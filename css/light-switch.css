@@ -1,17 +1,24 @@
-html {
-  -webkit-text-size-adjust: none; }
-
 .light-switch {
   position: relative;
   width: 140px;
   height: 40px;
   margin: 100px auto; }
+  .light-switch.on .switch .switcher {
+    left: 60px; }
+  .light-switch.on .light {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg); }
   .light-switch .switch {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    right: auto;
+    bottom: auto;
+    left: 0px;
     width: 100px;
-    height: 41px;
+    height: 40px;
     background-color: #eff3f3;
     background-image: -webkit-linear-gradient(bottom, #eff3f3, #ecf0f1);
     background-image: linear-gradient(to top,#eff3f3, #ecf0f1);
@@ -27,6 +34,8 @@ html {
     .light-switch .switch .switcher {
       position: absolute;
       top: 1px;
+      right: auto;
+      bottom: auto;
       left: 2px;
       width: 36px;
       height: 34px;
@@ -43,50 +52,51 @@ html {
       border-bottom-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
-      -moz-box-shadow: 0px 1px 5px 0px #d4d8d8;
       -webkit-box-shadow: 0px 1px 5px 0px #d4d8d8;
-      -o-box-shadow: 0px 1px 5px 0px #d4d8d8;
+      -moz-box-shadow: 0px 1px 5px 0px #d4d8d8;
       box-shadow: 0px 1px 5px 0px #d4d8d8;
+      -ms-box-shadow: 0px 1px 5px 0px #d4d8d8;
+      -o-box-shadow: 0px 1px 5px 0px #d4d8d8;
       -webkit-transition: all 500ms;
       -moz-transition: all 500ms;
       transition: all 500ms; }
       .light-switch .switch .switcher:hover {
         background: #5ed0b9;
         cursor: pointer; }
-      .light-switch .switch .switcher.on {
-        left: 60px; }
   .light-switch .light {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0px;
+    right: 0px;
+    bottom: auto;
+    left: auto;
     width: 40px;
     height: 40px;
     text-align: center;
+    background: transparent;
+    -webkit-transition: -webkit-transform 500ms ease-in-out;
+    -moz-transition: -moz-transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out;
+    -webkit-transform-origin: center top;
+    -moz-transform-origin: center top;
+    -ms-transform-origin: center top;
+    -o-transform-origin: center top;
+    transform-origin: center top;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform 500ms;
-    -moz-transition: -moz-transform 500ms;
-    transition: transform 500ms; }
-    .light-switch .light.on {
-      -webkit-transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-      -ms-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg);
-      transform: rotateY(180deg); }
+    transform-style: preserve-3d; }
     .light-switch .light i {
-      background: #FFF;
-      line-height: 40px;
-      display: block;
       position: absolute;
       width: 100%;
       height: 100%;
       -webkit-backface-visibility: hidden;
-      backface-visibility: hidden; }
+      backface-visibility: hidden;
+      line-height: 40px;
+      display: block; }
       .light-switch .light i.front {
-        color: #d4d8d8; }
+        color: #d4d8d8;
+        background: #FFF; }
       .light-switch .light i.back {
         color: #1abc9c;
         text-shadow: 0px 0px 5px #8cddcd;
