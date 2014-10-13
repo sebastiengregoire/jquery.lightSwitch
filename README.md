@@ -32,3 +32,5 @@ Yeah, I know... A button is usually used to do something. And yey, you can do th
 ## One more thing
 
 You can watch this in the `example.html` file :stuck_out_tongue_winking_eye:
+
+[Follow me on Twitter !](https://twitter.com/sebg)
