@@ -18,11 +18,8 @@ $color-switcher: #1abc9c;
     @include border-right-radius($radius);
 }
 
-
-
 // style
-
-html { -webkit-text-size-adjust:none; }
+html { -webkit-text-size-adjust:none; } // ?
 
 .light-switch {
     position: relative;
