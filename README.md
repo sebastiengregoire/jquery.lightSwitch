@@ -47,7 +47,7 @@ Have fun !
 
 ## License
 
-This plugin is available under [the MIT license](http://opensource.org/licenses/mit-license.php);
+This plugin is available under [the MIT license](http://opensource.org/licenses/mit-license.php).
 
 ## Thanks to...
 
