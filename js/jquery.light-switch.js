@@ -9,7 +9,7 @@
         };
 
         var LS = this;
-        LS.options = {}
+        LS.options = {};
         var $e = $(element);
         var e = element;
 
@@ -17,14 +17,14 @@
             LS.options = $.extend({}, defaults, options);
            	LS.setWrap();
            	LS.initEvents();
-        }
+        };
 
         LS.setWrap = function() {
         	this.wrapZone = $('<div class="light-switch"></div>');
         	this.wrapZone.append('<div class="switch"><div class="switcher"></div></div><div class="light"><i class="front fa fa-moon-o"></i><i class="back fa fa-sun-o"></i></div>')
         	$e.after(this.wrapZone);
         	$e.hide();
-        }
+        };
 
         LS.initEvents = function() {
         	this.wrapZone.click(function() {
@@ -38,15 +38,15 @@
 					if(typeof LS.options.on_callback === 'function') LS.options.on_callback.call(this);
         		}
         	});
-        }
+        };
 
         LS.init();
-    }
+    };
 
     $.fn.lightSwitch = function(options) {
         return this.each(function() {
             $.lightSwitch(this, options);
         });
-    }
+    };
 
 })(jQuery);

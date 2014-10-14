@@ -9,15 +9,17 @@
 </head>
 <body>
 
-    <input type="checkbox" name="light" class="lightSwitch"/>
+    <input type="checkbox" name="light" class="lightSwitch" />
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/min/jquery.light-switch-min.js"></script>
 
     <script>
     $(function() {
-        $('.lightSwitch').lightSwitch();
-    })
+        $('.lightSwitch').lightSwitch({
+            on_callback: function() { alert("coucou"); }
+        });
+    });
     </script>
 
 </body>
